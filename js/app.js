@@ -1,9 +1,11 @@
-function alterarStatus(status){
-    //let monopoly = document.getElementById('game-1');
-    //let ticket = document.getElementById('game-2');
-    //let takenoko = document.getElementById('game-3'); 
+let jogosAlugados = 0;
 
-    //declarando as variaveis para a manupulação das img e textos
+
+function contarEExibirJogosAlugados() {
+    console.log(`Total de jogos alugados: ${jogosAlugados}`);
+}
+
+function alterarStatus(status){
     let ticketImg = document.getElementById('gameTicket');
     let ticketText = document.getElementById('gameTick');
     let monopolyImg = document.getElementById('gameMonopoly');
@@ -16,12 +18,13 @@ function alterarStatus(status){
     if (1 == status){
         console.log('monopoly');
         if (monopolyImg.classList.contains('dashboard__item__img--rented')) {
-            monopolyImg.classList.remove('dashboard__item__img--rented');
-            console.log(monopolyImg.classList);
-            monopolyText.textContent = "Alugar";
-            monopolyText.classList.remove('dashboard__item__button--return');
-            console.log(monopolyText.classList);
-        } else {
+            if (confirm(`Você tem certeza que deseja devolver o jogo Monopoly`)) {
+                monopolyImg.classList.remove('dashboard__item__img--rented');
+                console.log(monopolyImg.classList);
+                monopolyText.textContent = "Alugar";
+                monopolyText.classList.remove('dashboard__item__button--return');
+                console.log(monopolyText.classList);
+        }} else {
             monopolyImg.classList.add('dashboard__item__img--rented');
             monopolyText.textContent = "Devolver";
             monopolyText.classList.add('dashboard__item__button--return');
@@ -33,12 +36,13 @@ function alterarStatus(status){
     if (2 == status){
         console.log('ticket');
         if (ticketImg.classList.contains('dashboard__item__img--rented')) {
-            ticketImg.classList.remove('dashboard__item__img--rented');
-            console.log(ticketImg.classList);
-            ticketText.textContent = "Alugar";
-            ticketText.classList.remove('dashboard__item__button--return');
-            console.log(ticketText.classList);
-        } else {
+            if (confirm(`Você tem certeza que deseja devolver o jogo Ticket To Ride`)) {
+                ticketImg.classList.remove('dashboard__item__img--rented');
+                console.log(ticketImg.classList);
+                ticketText.textContent = "Alugar";
+                ticketText.classList.remove('dashboard__item__button--return');
+                console.log(ticketText.classList);
+        }} else {
             ticketImg.classList.add('dashboard__item__img--rented');
             ticketText.textContent = "Devolver";
             ticketText.classList.add('dashboard__item__button--return');
@@ -50,12 +54,13 @@ function alterarStatus(status){
     if (3 == status){
         console.log('takenoko');
         if (takenokoImg.classList.contains('dashboard__item__img--rented')) {
-            takenokoImg.classList.remove('dashboard__item__img--rented');
-            console.log(takenokoImg.classList);
-            takenokoText.textContent = "Alugar";
-            takenokoText.classList.remove('dashboard__item__button--return');
-            console.log(takenokoText.classList);
-        } else {
+            if (confirm(`Você tem certeza que deseja devolver o jogo Takenoko`)) {
+                takenokoImg.classList.remove('dashboard__item__img--rented');
+                console.log(takenokoImg.classList);
+                takenokoText.textContent = "Alugar";
+                takenokoText.classList.remove('dashboard__item__button--return');
+                console.log(takenokoText.classList);
+        }}else {
             takenokoImg.classList.add('dashboard__item__img--rented');
             takenokoText.textContent = "Devolver";
             takenokoText.classList.add('dashboard__item__button--return');
@@ -63,7 +68,14 @@ function alterarStatus(status){
             console.log(takenokoText.classList);
         }
     }
+    contarEExibirJogosAlugados();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    jogosAlugados = document.querySelectorAll('.dashboard__item__img--rented').length;
+    contarEExibirJogosAlugados();
+    console.log(jogosAlugados);
+});
 
 
 
