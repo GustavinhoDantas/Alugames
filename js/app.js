@@ -24,12 +24,14 @@ function alterarStatus(status){
                 monopolyText.textContent = "Alugar";
                 monopolyText.classList.remove('dashboard__item__button--return');
                 console.log(monopolyText.classList);
+                jogosAlugados--;
         }} else {
             monopolyImg.classList.add('dashboard__item__img--rented');
             monopolyText.textContent = "Devolver";
             monopolyText.classList.add('dashboard__item__button--return');
             console.log(monopolyImg.classList);
             console.log(monopolyText.classList);
+            jogosAlugados++;
         }
  
     }
@@ -42,12 +44,14 @@ function alterarStatus(status){
                 ticketText.textContent = "Alugar";
                 ticketText.classList.remove('dashboard__item__button--return');
                 console.log(ticketText.classList);
+                jogosAlugados--;
         }} else {
             ticketImg.classList.add('dashboard__item__img--rented');
             ticketText.textContent = "Devolver";
             ticketText.classList.add('dashboard__item__button--return');
             console.log(ticketImg.classList);
             console.log(ticketText.classList);
+            jogosAlugados++;
         }
     }
     
@@ -60,12 +64,14 @@ function alterarStatus(status){
                 takenokoText.textContent = "Alugar";
                 takenokoText.classList.remove('dashboard__item__button--return');
                 console.log(takenokoText.classList);
+                jogosAlugados--;
         }}else {
             takenokoImg.classList.add('dashboard__item__img--rented');
             takenokoText.textContent = "Devolver";
             takenokoText.classList.add('dashboard__item__button--return');
             console.log(takenokoImg.classList);
             console.log(takenokoText.classList);
+            jogosAlugados++;
         }
     }
     contarEExibirJogosAlugados();
